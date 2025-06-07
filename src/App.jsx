@@ -4,7 +4,7 @@ import FashionGallery from './components/FashionGallery';
 
 function App() {
     return (
-        <div className="App">
+        <div className="App max-w-5xl mx-auto">
             <h1 className="text-3xl font-bold text-center my-6">Fashion Product Gallery</h1>
             <FashionGallery />
         </div>
