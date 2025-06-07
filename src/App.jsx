@@ -2,11 +2,12 @@
 import React from 'react';
 import ProductDispenser from './components/ProductDispenser.jsx';
 import Jumbotron from "./components/Jumbotron.jsx";
+import Header from "./components/Header.jsx";
 
 function App() {
     return (
         <div className="App max-w-5xl mx-auto">
-            <h1 className="text-3xl font-bold text-center my-6">Fashion Product Gallery</h1>
+            <Header />
             <Jumbotron />
             <ProductDispenser />
         </div>
