@@ -7,10 +7,10 @@ const ContentContainer = () => {
         <div className="max-w-5xl mx-auto">
             <Jumbotron/>
             <ul className="flex gap-5">
-                <li><button className="text-2xl">Women</button></li>
-                <li><button className="text-2xl">Men</button></li>
-                <li><button className="text-2xl">Boy</button></li>
-                <li><button className="text-2xl">Girl</button></li>
+                <li><button className="text-2xl hover:text-blue-500">Women</button></li>
+                <li><button className="text-2xl hover:text-blue-500">Men</button></li>
+                <li><button className="text-2xl hover:text-blue-500">Boy</button></li>
+                <li><button className="text-2xl hover:text-blue-500">Girl</button></li>
             </ul>
             <ProductDispenser/>
         </div>
