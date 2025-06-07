@@ -1,7 +1,7 @@
-// src/components/FashionGallery.jsx
+// src/components/ProductDispenser.jsx
 import React, { useEffect, useState } from 'react';
 import ProductItem from "./ProductItem.jsx";
-const FashionGallery = () => {
+const ProductDispenser = () => {
     const [products, setProducts] = useState([]);
     const rows = 10; // Number of rows to display
     const totalProducts = 6 * rows; // 6 products per row
@@ -21,4 +21,4 @@ const FashionGallery = () => {
     );
 };
 
-export default FashionGallery;
+export default ProductDispenser;
