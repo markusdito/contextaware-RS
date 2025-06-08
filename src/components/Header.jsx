@@ -19,9 +19,9 @@ const Header = ({setResults}) => {
         <header className="bg-white shadow-md p-4">
             <div className="max-w-5xl mx-auto flex gap-6 items-center">
                 <h1 className="w-48 text-2xl font-bold ">Fashion Store</h1>
-                <div className="relative w-full max-w-md border">
+                <div className="relative w-full">
                     <svg
-                        className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                        className="absolute left-6 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                     >
@@ -41,7 +41,7 @@ const Header = ({setResults}) => {
                                 await handleSearch();
                             }
                         }}
-                        className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring focus:border-blue-300"
+                        className="pl-14 pr-4 py-2 border-2 h-14 border-gray-300 rounded-full w-full  focus:outline-none focus:ring focus:border-blue-300"
                     />
                 </div>
             </div>
