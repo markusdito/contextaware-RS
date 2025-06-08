@@ -7,7 +7,7 @@ const Header = ({setResults}) => {
         if (!keyword) return;
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/search?keyword=${encodeURIComponent(keyword)}&top_n=18`);
+            const response = await fetch(`http://127.0.0.1:8000/search?keyword=${encodeURIComponent(keyword)}&top_n=100`);
             const data = await response.json();
             setResults(data.results);
         } catch (error) {
@@ -18,7 +18,7 @@ const Header = ({setResults}) => {
     return (
         <header className="bg-white shadow-md p-4">
             <div className="max-w-5xl mx-auto flex gap-6 items-center">
-                <h1 className="w-48 text-2xl font-bold ">Fashion Store</h1>
+                <h1 className="w-48 text-2xl font-bold">Fashion Store</h1>
                 <div className="relative w-full">
                     <svg
                         className="absolute left-6 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
