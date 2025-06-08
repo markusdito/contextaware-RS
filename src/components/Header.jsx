@@ -1,18 +1,49 @@
-import React from "react";
+import React, {useState} from "react";
 
-const Header = () => {
+const Header = ({setResults}) => {
+    const [keyword, setKeyword] = useState('');
+
+    const handleSearch = async () => {
+        if (!keyword) return;
+
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/search?keyword=${encodeURIComponent(keyword)}&top_n=18`);
+            const data = await response.json();
+            setResults(data.results);
+        } catch (error) {
+            console.error("Error fetching search results:", error);
+        }
+    };
+
     return (
         <header className="bg-white shadow-md p-4">
             <div className="max-w-5xl mx-auto flex gap-6 items-center">
-                <h1 className="text-2xl font-bold">Fashion Store</h1>
-                <button className="items-center px-6 w-full h-12 bg-gray-200 rounded-[15px] hover:bg-gray-300 duration-300">
-                    <div className="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 30 30">
-                            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
-                        </svg>
-                        <p className="text-gray-500">Search</p>
-                    </div>
-                </button>
+                <h1 className="w-48 text-2xl font-bold ">Fashion Store</h1>
+                <div className="relative w-full max-w-md border">
+                    <svg
+                        className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                    >
+                        <path
+                            fillRule="evenodd"
+                            d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.386a1 1 0 01-1.414 1.415l-4.386-4.387zM14 8a6 6 0 11-12 0 6 6 0 0112 0z"
+                            clipRule="evenodd"
+                        />
+                    </svg>
+                    <input
+                        type="text"
+                        placeholder="Search..."
+                        value={keyword}
+                        onChange={(e) => setKeyword(e.target.value)}
+                        onKeyDown={async (e) => {
+                            if (e.key === 'Enter') {
+                                await handleSearch();
+                            }
+                        }}
+                        className="pl-10 pr-4 py-2 border rounded-lg w-full focus:outline-none focus:ring focus:border-blue-300"
+                    />
+                </div>
             </div>
         </header>
     );
