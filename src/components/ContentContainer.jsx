@@ -2,8 +2,8 @@ import React, {useEffect} from "react";
 import Jumbotron from "./Jumbotron.jsx";
 import ProductDispenser from "./ProductDispenser.jsx";
 
-const ContentContainer = ({products, category, setCategory, setResults}) => {
-    const filteredProducts = category ? products.filter(product => product['gender'] === category) : products;
+const ContentContainer = ({initialProducts, products, category, setCategory, setResults}) => {
+    const filteredProducts = category ? initialProducts.filter(product => product['gender'] === category) : initialProducts;
 
     useEffect(() => {
         setResults(filteredProducts);

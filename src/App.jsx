@@ -5,6 +5,7 @@ import ContentContainer from "./components/ContentContainer.jsx";
 
 function App() {
     const [results, setResults] = useState([]);
+    const [initialResults, setInitialResults] = useState([]);
     const [category, setCategory] = useState(null)
 
     useEffect(() => {
@@ -13,6 +14,7 @@ function App() {
                 const response = await fetch(`http://127.0.0.1:8000/search?keyword=&top_n=18`);
                 const data = await response.json();
                 setResults(data.results);
+                setInitialResults(data.results);
             } catch (error) {
                 console.error("Error fetching initial products:", error);
             }
@@ -23,6 +25,7 @@ function App() {
     // When search runs → update both initialResults + results
     const handleSearchResults = (newResults) => {
         setResults(newResults);
+        setInitialResults(newResults);
         setCategory(null); // Optional → clear category filter when searching
     };
 
@@ -31,6 +34,7 @@ function App() {
             <Header setResults={handleSearchResults}/>
             <ContentContainer products={results}
                               category={category}
+                              initialProducts={initialResults}
                               setCategory={setCategory}
                               setResults={setResults}
             />
